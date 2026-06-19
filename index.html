@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooperativa Nodo | Reciclaje de Hardware</title>
+    <link rel="stylesheet" href="Style.css">
+    </head>
+<body>
+
+    <header class="header-consola">
+        <div class="logo-txt">
+            <span class="txt-codigo">NODO_</span>
+        </div>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="#manifiesto">Manifiesto</a></li>
+                <li><a href="#inventario">Equipos</a></li>
+                <li><a href="#participar">Ser parte</a></li>
+                <li><a href="#documentacion">Docs del Sistema</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero-impacto" aria-labelledby="titulo-hero">
+            <h1 id="titulo-hero" class="titulo-display">Ensamblando el futuro, reciclando el pasado.</h1>
+            <p>Recuperamos hardware en desuso para reducir la brecha digital y el e-waste.</p>
+            <div class="acciones-hero">
+                <a href="#participar" class="btn-primario">Donar Equipamiento</a>
+                <a href="#manifiesto" class="btn-secundario">Ver proceso</a>
+            </div>
+        </section>
+
+        <section id="manifiesto" aria-labelledby="titulo-flujo">
+            <h2 id="titulo-flujo" class="titulo-grande">Ciclo Operativo</h2>
+            
+            <div class="contenedor-flujo">
+                <article class="item-flujo">
+                    <span class="txt-codigo">[01] Recepción</span>
+                    <p>Acopio de gabinetes, periféricos y placas en desuso.</p>
+                </article>
+                <article class="item-flujo">
+                    <span class="txt-codigo">[02] Diagnóstico</span>
+                    <p>Testeo de componentes individuales y rescate de silicio funcional.</p>
+                </article>
+                <article class="item-flujo">
+                    <span class="txt-codigo">[03] Ensamblaje</span>
+                    <p>Configuración de equipos operativos para uso en comedores y bibliotecas.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="inventario" aria-labelledby="titulo-inventario">
+            <h2 id="titulo-inventario" class="titulo-grande">Hardware Recuperado</h2>
+            
+            <div class="grid-inventario">
+                
+                <article class="card-hardware">
+                    <div class="visual-componente">
+                        <img src="placeholder-motherboard.jpg" alt="Placa madre rescatada" class="img-tecnica">
+                    </div>
+                    <div class="datos-componente">
+                        <h3 class="titulo-base">Motherboard ASUS H81M-K</h3>
+                        <span class="tag-estado">En diagnóstico</span>
+                        <p class="txt-codigo">Lote: #0042 - Destino: Biblioteca Popular</p>
+                        <button class="btn-secundario">Ver especificaciones</button>
+                    </div>
+                </article>
+
+                <article class="card-hardware">
+                    <div class="visual-componente">
+                        <img src="placeholder-ram.jpg" alt="Módulo de memoria RAM" class="img-tecnica">
+                    </div>
+                    <div class="datos-componente">
+                        <h3 class="titulo-base">Módulo RAM 8GB DDR3</h3>
+                        <span class="tag-estado tag-listo">Listo para ensamblar</span>
+                        <p class="txt-codigo">Lote: #0043 - Destino: Taller Comunitario</p>
+                        <button class="btn-secundario">Ver especificaciones</button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="participar" aria-labelledby="titulo-participar">
+            <h2 id="titulo-participar" class="titulo-grande">Iniciar Conexión</h2>
+            <p>Ingresá tus datos para donar equipos o sumarte como voluntario técnico.</p>
+            
+            <form action="#" method="POST" class="formulario-ingreso">
+                <div class="form-grupo">
+                    <label for="nombre">Identificación (Nombre / Organización):</label>
+                    <input type="text" id="nombre" name="nombre" class="input-terminal" required>
+                </div>
+                
+                <div class="form-grupo">
+                    <label for="tipo-contacto">Protocolo de acción:</label>
+                    <select id="tipo-contacto" name="tipo-contacto" class="input-terminal">
+                        <option value="donacion">Quiero donar hardware</option>
+                        <option value="voluntario">Quiero ser voluntario</option>
+                        <option value="solicitud">Necesito equipamiento</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primario">Ejecutar Comando</button>
+            </form>
+        </section>
+
+       <section id="documentacion" aria-labelledby="titulo-docs">
+            <h2 id="titulo-docs" class="titulo-display">Documentación del Sistema</h2>
+            
+            <article class="doc-bloque">
+                <h3 class="titulo-grande">4.1 Sobre el caso</h3>
+                <p><strong>Cooperativa Nodo:</strong> Organización dedicada a la recuperación y reacondicionamiento de hardware (e-waste). El sistema vincula a donantes, voluntarios técnicos y referentes de espacios comunitarios. El objetivo web es agilizar el proceso de donación y visibilizar el ciclo de reciclaje técnico.</p>
+            </article>
+
+            <article class="doc-bloque">
+                <h3 class="titulo-grande">4.2 Análisis de referencia</h3>
+                <p>Se deconstruyó el sitio de la Fundación Equidad. Se detectó un uso genérico del diseño corporativo "eco-friendly" y falencias en la jerarquía tipográfica. Como contrapropuesta, el sistema propio adopta una estética de hardware expuesto y brutalismo digital, utilizando alto contraste y tipografías de consola para reforzar la materialidad técnica de la cooperativa.</p>
+            </article>
+
+            <article class="doc-bloque">
+                <h3 class="titulo-grande">4.3 Variables del sistema (Design Tokens)</h3>
+                <div class="muestras-grid">
+                    <div class="muestra-color" style="background-color: var(--color-fondo); border: 1px solid var(--color-borde);">
+                        <span class="tag-estado">--color-fondo</span>
+                    </div>
+                    <div class="muestra-color" style="background-color: var(--color-superficie); border: 1px solid var(--color-borde);">
+                        <span class="tag-estado">--color-superficie</span>
+                    </div>
+                    <div class="muestra-color" style="background-color: var(--color-primario); color: var(--color-fondo);">
+                        <span class="tag-estado">--color-primario</span>
+                    </div>
+                    <div class="muestra-color" style="background-color: var(--color-accion); color: var(--color-fondo);">
+                        <span class="tag-estado">--color-accion</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="doc-bloque">
+                <h3 class="titulo-grande">4.4 Inventario visual</h3>
+                <p class="txt-codigo">Átomos representativos:</p>
+                <div style="display: flex; gap: 1rem; margin-bottom: 2rem; align-items: center;">
+                    <button class="btn-primario">.btn-primario</button>
+                    <button class="btn-secundario">.btn-secundario</button>
+                    <span class="tag-estado">.tag-estado</span>
+                </div>
+                
+                <p class="txt-codigo">Molécula representativa (.card-hardware):</p>
+                <p>Visible en la sección de "Hardware Recuperado" superior.</p>
+            </article>
+
+            <article class="doc-bloque">
+                <h3 class="titulo-grande">4.5 Decisiones técnicas</h3>
+                <p>La estructura macro del layout se resolvió mediante <strong>CSS Grid</strong> utilizando una aproximación Mobile-First. Se definió una grilla base de una columna que escala a un formato fraccional de 3 columnas en viewports superiores a 1280px (`grid-template-columns: repeat(3, 1fr)`), manteniendo un ritmo visual rígido acorde al concepto de hardware expuesto.</p>
+                
+                <p>El componente principal del inventario (`.card-hardware`) utiliza <strong>Container Queries</strong> (`container-type: inline-size`). Esto permite que la tarjeta reorganice su microcomposición interna (pasando de apilada a horizontal) en función del espacio disponible en su columna padre, independientemente del ancho total de la ventana, garantizando una modularidad absoluta.</p>
+                
+                <p>El mayor desafío técnico radicó en lograr la estética de "brutalismo digital" y terminal de comandos sin depender de imágenes pesadas. Se resolvió utilizando combinaciones estrictas de tipografías monoespaciadas nativas, bordes sólidos de 2px y un manejo riguroso de las Custom Properties (`:root`) para sostener el alto contraste cromático en toda la interfaz.</p>
+            </article>
+        </section>
+
+    </main>
+
+    <footer class="footer-sistema">
+        <div class="footer-info">
+            <p class="txt-codigo">&copy; 2026 Cooperativa Nodo.</p>
+            <p>La Plata, Buenos Aires. Hardware abierto y reciclaje social.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
