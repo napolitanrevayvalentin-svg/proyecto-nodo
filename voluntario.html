@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ser Voluntario | Cooperativa Nodo</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <header class="org-header-consola">
+        <div class="logo-txt">
+            <span class="atm-txt-codigo">NODO_</span>
+        </div>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">← Volver al Inicio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="org-seccion-estandar">
+            <h1 class="atm-titulo-display">Registro Técnico</h1>
+            <p>Conectate a la red de voluntarios. No se requiere experiencia avanzada, solo voluntad de ensamblar.</p>
+            
+            <form class="mol-formulario-ingreso">
+                <div class="mol-form-grupo">
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" class="atm-input-terminal" required>
+                </div>
+
+                <div class="mol-form-grupo">
+                    <label for="area">Área de interés:</label>
+                    <select id="area" name="area" class="atm-input-terminal">
+                        <option value="diagnostico">Diagnóstico y Testeo</option>
+                        <option value="ensamblaje">Ensamblaje de Equipos</option>
+                        <option value="logistica">Logística y Recolección</option>
+                    </select>
+                </div>
+
+                <div class="mol-form-grupo">
+                    <label for="experiencia">Nivel de conocimientos (Opcional):</label>
+                    <input type="text" id="experiencia" name="experiencia" class="atm-input-terminal" placeholder="Ej: Sé armar PCs, instalar Windows, etc.">
+                </div>
+
+                <button type="submit" class="atm-btn-primario">Solicitar Acceso</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="org-footer-sistema">
+        <div class="footer-info">
+            <p class="atm-txt-codigo">&copy; 2026 Cooperativa Nodo.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Voluntario -->
+    <div id="modal-exito" class="mol-modal-overlay">
+        <div class="mol-modal-contenido">
+            <h3 class="atm-titulo-grande" style="color: var(--color-accion);">[ ACCESO OTORGADO ]</h3>
+            <img src="gif-voluntario.svg"lt="Código en terminal">
+            <p>Bienvenido a la red. Tu perfil técnico ha sido registrado en nuestra base de datos. Pronto recibirás las coordenadas de ensamblaje.</p>
+            <a href="index.html" class="atm-btn-primario" style="margin-top: var(--separacion-componente); display: inline-block;">Volver al Inicio</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.querySelector('.mol-formulario-ingreso');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    document.getElementById('modal-exito').style.display = 'flex';
+                    return false;
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

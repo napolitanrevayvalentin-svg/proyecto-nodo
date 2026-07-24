@@ -1,5 +1,5 @@
 /* 
-   1. VARIABLES DE SISTEMA (Design Tokens)
+   1. VARIABLES DE SISTEMA (Design Tokens con Nomenclatura Semántica)
 */
 :root {
   /* Colores */
@@ -11,16 +11,16 @@
   --color-borde: #333333; 
 
   /* Tipografía */
-  --tipo-pequeno: 0.875rem; 
-  --tipo-base: 1rem;        
-  --tipo-grande: 1.5rem;    
-  --tipo-display: 2.5rem;     
+  --texto-metadato: 0.875rem; 
+  --texto-lectura: 1rem;        
+  --texto-subtitulo: 1.5rem;    
+  --texto-hero: 2.5rem;     
 
   /* Espaciado */
-  --espacio-xs: 0.5rem;     
-  --espacio-sm: 1rem;       
-  --espacio-md: 2rem;       
-  --espacio-lg: 4rem;       
+  --separacion-minima: 0.5rem;     
+  --separacion-componente: 1rem;       
+  --separacion-modulo: 2rem;       
+  --separacion-seccion: 4rem;       
 }
 
 /* 
@@ -35,225 +35,279 @@
 body {
   background-color: var(--color-fondo);
   color: var(--color-texto);
-  font-family: system-ui, -apple-system, sans-serif; /* Tipografía limpia de lectura */
+  font-family: system-ui, -apple-system, sans-serif;
   line-height: 1.6;
 }
 
 /* Tipografía Monoespaciada para datos técnicos */
-.txt-codigo, .titulo-display, .titulo-grande {
+.atm-txt-codigo, .atm-titulo-display, .atm-titulo-grande {
   font-family: 'Courier New', Courier, monospace;
 }
 
-/* Espaciado general de las secciones */
-section {
-  padding: var(--espacio-lg) var(--espacio-md);
+.atm-titulo-display {
+  font-size: var(--texto-hero);
+  margin-bottom: var(--separacion-componente);
 }
+
+.atm-titulo-grande {
+  font-size: var(--texto-subtitulo);
+  margin-bottom: var(--separacion-componente);
+}
+
 /* 
-   3. MACROCOMPOSICIÓN (CSS Grid)
+   3. MACROCOMPOSICIÓN (CSS Grid Explícito - 12 Columnas en Desktop)
  */
-
-/* Comportamiento Base (Mobile First - 1 columna) */
-.grid-inventario {
+body {
   display: grid;
-  grid-template-columns: 1fr; /* Todo apilado en mobile */
-  gap: var(--espacio-md);
-  margin-top: var(--espacio-md);
+  grid-template-columns: 1fr; /* Mobile First: 1 sola columna */
+  min-height: 100vh;
 }
 
-/* Tablet (768px) - Pasamos a 2 columnas */
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--separacion-seccion);
+}
+
+section {
+  padding: var(--separacion-seccion) var(--separacion-modulo);
+}
+
+.org-header-consola {
+  padding: var(--separacion-componente) var(--separacion-modulo);
+}
+
+/* Desktop (1280px) - Grilla de 12 Columnas explícita */
+@media (min-width: 1280px) {
+  body {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  
+  .org-header-consola {
+    grid-column: 1 / -1; /* Ocupa las 12 columnas */
+  }
+  
+  main {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  
+  .org-hero-impacto {
+    grid-column: 3 / 11; /* Ocupa el centro, deja margen */
+    text-align: center;
+  }
+  
+  .org-seccion-estandar {
+    grid-column: 3 / 11;
+  }
+  
+  .org-grid-inventario {
+    grid-column: 2 / 12;
+  }
+
+  .org-footer-sistema {
+    grid-column: 1 / -1;
+  }
+}
+
+/* 
+   Comportamiento Interno de la Grilla de Inventario 
+*/
+.org-grid-inventario {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--separacion-modulo);
+}
+
 @media (min-width: 768px) {
-  .grid-inventario {
+  .org-grid-inventario {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Desktop (1280px) - Pasamos a 3 o 4 columnas y centramos el contenido general */
 @media (min-width: 1280px) {
-  .grid-inventario {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  /* Limitamos el ancho máximo en pantallas muy grandes */
-  main, .header-consola, .footer-sistema {
-    max-width: 1200px;
-    margin: 0 auto;
+  .org-grid-inventario {
+    grid-template-columns: repeat(3, 1fr); /* 3 tarjetas por fila adentro de su contenedor */
   }
 }
-/* 
-   4. COMPONENTES Y CONTAINER QUERIES
- */
 
-/* 1. Definimos la tarjeta como un contenedor */
-.card-hardware {
+/* 
+   4. COMPONENTES Y CONTAINER QUERIES (Moléculas)
+ */
+.mol-card-hardware {
   container-type: inline-size;
   container-name: tarjeta;
   
-  /* Estilos visuales brutalistas */
   background-color: var(--color-superficie);
   border: 2px solid var(--color-borde);
-  padding: var(--espacio-sm);
+  padding: var(--separacion-componente);
   
-  /* Por defecto (si el contenedor es angosto), los elementos se apilan */
   display: flex;
   flex-direction: column;
-  gap: var(--espacio-sm);
+  gap: var(--separacion-componente);
 }
 
-.visual-componente img {
+.card-visual img {
   width: 100%;
   height: auto;
   border: 1px solid var(--color-borde);
-  /* Filtro para darle toque tecnológico oscuro a las fotos */
   filter: grayscale(100%) contrast(120%); 
 }
 
-/* 2. Aplicamos la Container Query */
-/* Si la tarjeta tiene más de 400px de espacio disponible, cambia su layout interno */
+/* Container Query para la Molécula */
 @container tarjeta (min-width: 400px) {
-  .card-hardware {
-    /* Cambiamos de Flex apilado a un Grid de 2 columnas interno */
+  .mol-card-hardware {
     display: grid;
     grid-template-columns: 150px 1fr;
     align-items: center;
   }
   
-  /* Ajustamos la imagen para que encaje en su nueva columna */
-  .visual-componente img {
+  .card-visual img {
     height: 100%;
     object-fit: cover;
   }
 }
+
+/* Contenedor del ciclo operativo */
+.mol-contenedor-flujo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--separacion-modulo);
+}
+@media (min-width: 768px) {
+  .mol-contenedor-flujo {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
 /* 
    5. ÁTOMOS (Botones y Tags)
  */
-
-/* Base de botones */
-.btn-primario, .btn-secundario {
+.atm-btn-primario, .atm-btn-secundario {
   display: inline-block;
-  padding: var(--espacio-sm) var(--espacio-md);
+  padding: var(--separacion-componente) var(--separacion-modulo);
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   text-decoration: none;
   text-transform: uppercase;
   cursor: pointer;
-  border-radius: 0; /* Aseguramos que no haya bordes redondeados */
+  border-radius: 0; 
   transition: all 0.2s ease;
+  margin-top: var(--separacion-minima);
 }
 
-/* Botón principal (Naranja Técnico) */
-.btn-primario {
+.atm-btn-primario {
   background-color: var(--color-accion);
   color: var(--color-fondo);
   border: 2px solid var(--color-accion);
 }
 
-.btn-primario:hover {
+.atm-btn-primario:hover {
   background-color: transparent;
   color: var(--color-accion);
 }
 
-/* Botón secundario (Verde Fósforo) */
-.btn-secundario {
+.atm-btn-secundario {
   background-color: transparent;
   color: var(--color-primario);
   border: 2px solid var(--color-primario);
 }
 
-.btn-secundario:hover {
+.atm-btn-secundario:hover {
   background-color: var(--color-primario);
   color: var(--color-fondo);
 }
 
-/* Etiquetas de estado */
-.tag-estado {
+.atm-tag-estado {
   display: inline-table;
-  font-size: var(--tipo-pequeno);
+  font-size: var(--texto-metadato);
   background-color: var(--color-fondo);
   color: var(--color-texto);
   border: 1px solid var(--color-borde);
   padding: 0.2rem 0.5rem;
   font-family: 'Courier New', Courier, monospace;
+  margin: var(--separacion-minima) 0;
 }
 
-/* Variante de etiqueta cuando el equipo está listo */
 .tag-listo {
   color: var(--color-primario);
   border-color: var(--color-primario);
 }
-/* 
-   6. FORMULARIOS
- */
 
-.formulario-ingreso {
+/* 
+   6. FORMULARIOS (Moléculas y Átomos)
+ */
+.mol-formulario-ingreso {
   background-color: var(--color-superficie);
-  padding: var(--espacio-md);
+  padding: var(--separacion-modulo);
   border: 1px solid var(--color-borde);
   max-width: 600px;
+  margin-top: var(--separacion-componente);
 }
 
-.form-grupo {
+.mol-form-grupo {
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--espacio-sm);
-  gap: var(--espacio-xs);
+  margin-bottom: var(--separacion-componente);
+  gap: var(--separacion-minima);
 }
 
-.input-terminal {
+.atm-input-terminal {
   background-color: var(--color-fondo);
   color: var(--color-primario);
   border: 1px solid var(--color-borde);
-  padding: var(--espacio-sm);
+  padding: var(--separacion-componente);
   font-family: 'Courier New', Courier, monospace;
-  font-size: var(--tipo-base);
+  font-size: var(--texto-lectura);
 }
 
-.input-terminal:focus {
+.atm-input-terminal:focus {
   outline: none;
   border-color: var(--color-primario);
   box-shadow: inset 0 0 5px rgba(0, 255, 65, 0.2);
 }
-/*
-   7. ENCABEZADO Y FOOTER
-*/
 
-.header-consola {
+/*
+   7. ENCABEZADO Y FOOTER (Organismos)
+*/
+.org-header-consola {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--espacio-sm) var(--espacio-md);
   border-bottom: 2px solid var(--color-borde);
   background-color: var(--color-fondo);
 }
 
-.header-consola ul {
+.org-header-consola ul {
   display: flex;
   list-style: none;
-  gap: var(--espacio-md);
+  gap: var(--separacion-modulo);
 }
 
-.header-consola a {
+.org-header-consola a {
   color: var(--color-texto);
   text-decoration: none;
   font-family: 'Courier New', Courier, monospace;
 }
 
-.header-consola a:hover {
+.org-header-consola a:hover {
   color: var(--color-primario);
 }
 
-.footer-sistema {
+.org-footer-sistema {
   border-top: 2px solid var(--color-borde);
-  padding: var(--espacio-md);
+  padding: var(--separacion-modulo);
   text-align: center;
-  margin-top: var(--espacio-lg);
+  margin-top: var(--separacion-seccion);
 }
+
 /* 
    8. DOCUMENTACIÓN INTEGRADA
  */
-
 .doc-bloque {
-  margin-bottom: var(--espacio-md);
-  padding: var(--espacio-sm);
+  margin-bottom: var(--separacion-modulo);
+  padding: var(--separacion-componente);
   border-left: 4px solid var(--color-primario);
   background-color: var(--color-superficie);
 }
@@ -261,8 +315,8 @@ section {
 .muestras-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--espacio-sm);
-  margin-top: var(--espacio-sm);
+  gap: var(--separacion-componente);
+  margin-top: var(--separacion-componente);
 }
 
 .muestra-color {
@@ -271,4 +325,112 @@ section {
   align-items: center;
   justify-content: center;
   font-weight: bold;
+}
+/* =========================================
+   9. MODALES (Pop-ups de confirmación)
+========================================= */
+.mol-modal-overlay {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(13, 13, 13, 0.9); /* Fondo oscuro semitransparente */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.mol-modal-contenido {
+  background-color: var(--color-superficie);
+  border: 2px solid var(--color-primario);
+  padding: var(--separacion-modulo);
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  /* Sombra dura estilo brutalista */
+  box-shadow: 8px 8px 0 var(--color-primario); 
+}
+
+.mol-modal-contenido img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border: 1px solid var(--color-borde);
+  margin: var(--separacion-componente) 0;
+  /* Mantenemos el filtro para que cualquier GIF encaje en la estética */
+  filter: grayscale(100%) contrast(150%);
+}
+/* =========================================
+   10. AJUSTES FINALES PARA MOBILE (Responsive)
+========================================= */
+
+/* Hacemos que el header apile el logo y el menú en celulares */
+.org-header-consola {
+  flex-direction: column;
+  gap: var(--separacion-componente);
+  text-align: center;
+}
+
+/* Permitimos que los enlaces del menú bajen de línea si no entran */
+.org-header-consola ul {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem; /* Achicamos el espacio entre links para mobile */
+}
+
+/* Agrupador de botones del hero y modales */
+.acciones-hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--separacion-componente);
+  margin-top: var(--separacion-modulo);
+}
+
+/* Los botones ocupan el 100% del ancho en mobile para fácil tap */
+.atm-btn-primario, .atm-btn-secundario {
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* 
+   A partir de tablets (768px), restauramos el diseño horizontal 
+*/
+@media (min-width: 768px) {
+  .org-header-consola {
+    flex-direction: row;
+    text-align: left;
+  }
+  
+  .acciones-hero {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .atm-btn-primario, .atm-btn-secundario {
+    width: auto; /* Vuelven a su tamaño natural */
+  }
+}
+/* Ajustes específicos para Formularios y Modales en Mobile */
+
+.atm-input-terminal {
+  width: 100%;
+  box-sizing: border-box; /* Evita que el padding rompa el ancho de la caja */
+}
+
+/* Solo para pantallas chicas (hasta 767px) */
+@media (max-width: 767px) {
+  .mol-formulario-ingreso {
+    /* Achicamos el padding interno para ganar espacio en pantallas angostas */
+    padding: var(--separacion-componente);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .mol-modal-contenido {
+    padding: var(--separacion-componente);
+  }
+  
+  .mol-modal-contenido img {
+    height: 120px; /* Reducimos la altura del GIF/SVG para que no ocupe toda la pantalla */
+  }
 }

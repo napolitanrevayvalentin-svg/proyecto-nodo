@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Equipamiento | Cooperativa Nodo</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <header class="org-header-consola">
+        <div class="logo-txt">
+            <span class="atm-txt-codigo">NODO_</span>
+        </div>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">← Volver al Inicio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="org-seccion-estandar">
+            <h1 class="atm-titulo-display">Solicitar Hardware</h1>
+            <p>Ingresá los datos de tu espacio comunitario para entrar en la lista de asignación de equipos recuperados.</p>
+            
+            <form class="mol-formulario-ingreso">
+                <div class="mol-form-grupo">
+                    <label for="espacio">Nombre del espacio (Comedor / Biblioteca):</label>
+                    <input type="text" id="espacio" name="espacio" class="atm-input-terminal" required>
+                </div>
+
+                <div class="mol-form-grupo">
+                    <label for="cantidad">Cantidad de terminales necesarias:</label>
+                    <select id="cantidad" name="cantidad" class="atm-input-terminal">
+                        <option value="1">1 Equipo</option>
+                        <option value="2-3">2 a 3 Equipos</option>
+                        <option value="4+">Más de 4 Equipos (Requiere visita técnica)</option>
+                    </select>
+                </div>
+
+                <div class="mol-form-grupo">
+                    <label for="uso">Propósito principal del hardware:</label>
+                    <input type="text" id="uso" name="uso" class="atm-input-terminal" placeholder="Ej: Apoyo escolar, alfabetización digital..." required>
+                </div>
+
+                <button type="submit" class="atm-btn-primario">Generar Solicitud</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="org-footer-sistema">
+        <div class="footer-info">
+            <p class="atm-txt-codigo">&copy; 2026 Cooperativa Nodo.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Solicitud -->
+    <div id="modal-exito" class="mol-modal-overlay">
+        <div class="mol-modal-contenido">
+            <h3 class="atm-titulo-grande" style="color: var(--color-texto);">[ SOLICITUD ENVIADA ]</h3>
+            <img src="gif-solicitud.svg" alt="Sistema procesando">
+            <p>Petición ingresada. Tu espacio comunitario está ahora en la cola de asignación de hardware. Analizaremos el inventario disponible.</p>
+            <a href="index.html" class="atm-btn-primario" style="margin-top: var(--separacion-componente); display: inline-block;">Volver al Inicio</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.querySelector('.mol-formulario-ingreso');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    document.getElementById('modal-exito').style.display = 'flex';
+                    return false;
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

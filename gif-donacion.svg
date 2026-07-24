@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" shape-rendering="crispEdges">
+  <style>
+    /* Animación cortada en pasos para simular los frames de un GIF pixel art */
+    @keyframes drop {
+      0% { transform: translateY(-25px); opacity: 0; }
+      20% { transform: translateY(-10px); opacity: 1; }
+      40% { transform: translateY(5px); opacity: 1; }
+      60% { transform: translateY(20px); opacity: 1; }
+      80% { transform: translateY(35px); opacity: 1; }
+      100% { transform: translateY(35px); opacity: 0; }
+    }
+    .anim-drop { 
+      animation: drop 1.2s infinite steps(1); 
+    }
+    .color-base { fill: #00FF41; }
+    .color-bg { fill: #0D0D0D; }
+  </style>
+
+  <!-- Fondo oscuro -->
+  <rect width="100" height="100" class="color-bg"/>
+
+  <!-- Caja receptora (Estilo Pixel) -->
+  <!-- Pared Izquierda -->
+  <rect x="25" y="60" width="8" height="25" class="color-base"/>
+  <!-- Pared Derecha -->
+  <rect x="67" y="60" width="8" height="25" class="color-base"/>
+  <!-- Base -->
+  <rect x="25" y="85" width="50" height="8" class="color-base"/>
+  <!-- Detalles técnicos en la caja -->
+  <rect x="40" y="75" width="20" height="4" class="color-base"/>
+
+  <!-- Hardware cayendo (Microprocesador) -->
+  <g class="anim-drop">
+    <!-- Cuerpo del chip -->
+    <rect x="37" y="10" width="26" height="18" class="color-base"/>
+    <!-- Pines superiores -->
+    <rect x="41" y="4" width="4" height="6" class="color-base"/>
+    <rect x="48" y="4" width="4" height="6" class="color-base"/>
+    <rect x="55" y="4" width="4" height="6" class="color-base"/>
+    <!-- Pines inferiores -->
+    <rect x="41" y="28" width="4" height="6" class="color-base"/>
+    <rect x="48" y="28" width="4" height="6" class="color-base"/>
+    <rect x="55" y="28" width="4" height="6" class="color-base"/>
+  </g>
+</svg>

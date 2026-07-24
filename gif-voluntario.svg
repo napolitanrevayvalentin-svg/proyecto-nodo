@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" shape-rendering="crispEdges">
+  <style>
+    /* Animación de la línea de escaneo */
+    @keyframes scan {
+      0% { transform: translateY(10px); opacity: 1; }
+      100% { transform: translateY(90px); opacity: 0; }
+    }
+    /* Animación de latido digital para el avatar */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .anim-scan { animation: scan 1.5s infinite linear; }
+    .anim-pulse { animation: pulse 2s infinite steps(2); }
+    
+    /* El naranja técnico de tu --color-accion */
+    .color-base { fill: #FFB000; } 
+    .color-bg { fill: #0D0D0D; }
+  </style>
+
+  <!-- Fondo oscuro -->
+  <rect width="100" height="100" class="color-bg"/>
+
+  <!-- Avatar / Perfil Técnico (Pixel Art) -->
+  <g class="anim-pulse">
+      <!-- Cabeza -->
+      <rect x="35" y="25" width="30" height="25" class="color-base"/>
+      <!-- Ojos huecos (visor cibernético) -->
+      <rect x="40" y="32" width="20" height="6" class="color-bg"/>
+      <rect x="48" y="32" width="4" height="6" class="color-base"/> <!-- Separador del visor -->
+      
+      <!-- Cuello -->
+      <rect x="42" y="50" width="16" height="5" class="color-base"/>
+      
+      <!-- Torso / Hombros -->
+      <rect x="20" y="55" width="60" height="30" class="color-base"/>
+      <!-- Detalles mecánicos en el torso -->
+      <rect x="30" y="65" width="10" height="20" class="color-bg"/>
+      <rect x="60" y="65" width="10" height="20" class="color-bg"/>
+      <rect x="45" y="70" width="10" height="5" class="color-bg"/>
+  </g>
+
+  <!-- Línea de escaneo ingresando los datos -->
+  <rect x="15" y="0" width="70" height="4" class="color-base anim-scan"/>
+</svg>
