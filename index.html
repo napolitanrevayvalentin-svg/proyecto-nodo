@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooperativa Nodo | Reciclaje de Hardware</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <header class="org-header-consola">
+        <div class="logo-txt">
+            <span class="atm-txt-codigo">NODO_</span>
+        </div>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="#manifiesto">Manifiesto</a></li>
+                <li><a href="#inventario">Equipos</a></li>
+                <li><a href="#participar">Ser parte</a></li>
+                <li><a href="#documentacion">Docs del Sistema</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="org-hero-impacto" aria-labelledby="titulo-hero">
+            <h1 id="titulo-hero" class="atm-titulo-display">Ensamblando el futuro, reciclando el pasado.</h1>
+            <p>Recuperamos hardware en desuso para reducir la brecha digital y el e-waste.</p>
+            <div class="acciones-hero">
+                <a href="#participar" class="atm-btn-primario">Donar Equipamiento</a>
+                <a href="#manifiesto" class="atm-btn-secundario">Ver proceso</a>
+            </div>
+        </section>
+
+        <section id="manifiesto" class="org-seccion-estandar" aria-labelledby="titulo-flujo">
+            <h2 id="titulo-flujo" class="atm-titulo-grande">Ciclo Operativo</h2>
+            
+            <div class="mol-contenedor-flujo">
+                <article class="item-flujo">
+                    <span class="atm-txt-codigo">[01] Recepción</span>
+                    <p>Acopio de gabinetes, periféricos y placas en desuso.</p>
+                </article>
+                <article class="item-flujo">
+                    <span class="atm-txt-codigo">[02] Diagnóstico</span>
+                    <p>Testeo de componentes individuales y rescate de silicio funcional.</p>
+                </article>
+                <article class="item-flujo">
+                    <span class="atm-txt-codigo">[03] Ensamblaje</span>
+                    <p>Configuración de equipos operativos para uso en comedores y bibliotecas.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="inventario" class="org-grid-inventario" aria-labelledby="titulo-inventario">
+            <h2 id="titulo-inventario" class="atm-titulo-grande" style="grid-column: 1 / -1;">Hardware Recuperado</h2>
+            
+            <!-- Molécula 1 -->
+            <article class="mol-card-hardware">
+                <div class="card-visual">
+                    <img src="Imgs/w185.png"Placa madre rescatada class="img-tecnica">
+                </div>
+                <div class="card-datos">
+                    <h3 class="titulo-base">Motherboard ASUS H81M-K</h3>
+                    <span class="atm-tag-estado">En diagnóstico</span>
+                    <p class="atm-txt-codigo">Lote: #0042 - Destino: Biblioteca Popular</p>
+                    <button class="atm-btn-secundario js-abrir-specs" 
+                        data-titulo="ASUS H81M-K" 
+                        data-info="> SOCKET: LGA 1150 [INTEL]<br>> MEMORIA_MAX: 16GB DDR3 (2 slots)<br>> ESTADO_CAPACITORES: OK<br>> PUERTOS_I/O: USB_FRONTAL FALLANDO - RESTO OK<br>> DIAGNOSTICO: Apto para ensamblaje ofimático.">
+                        Ver especificaciones
+                    </button>
+                </div>
+            </article>
+
+            <!-- Molécula 2 -->
+            <article class="mol-card-hardware">
+                <div class="card-visual">
+                    <img src="Imgs/RAM.png"Módulo de memoria RAM class="img-tecnica">
+                </div>
+                <div class="card-datos">
+                    <h3 class="titulo-base">Módulo RAM 8GB DDR3</h3>
+                    <span class="atm-tag-estado tag-listo">Listo para ensamblar</span>
+                    <p class="atm-txt-codigo">Lote: #0043 - Destino: Taller Comunitario</p>
+                    <button class="atm-btn-secundario js-abrir-specs" 
+                        data-titulo="RAM 8GB DDR3" 
+                        data-info="> TIPO: DIMM DDR3<br>> VELOCIDAD: 1600 MHz<br>> TEST_INTEGRIDAD: MEMTEST86 (PASS)<br>> SECTORES_DAÑADOS: 0<br>> DIAGNOSTICO: Listo para asignación inmediata.">
+                        Ver especificaciones
+                    </button>
+                </div>
+            </article>
+
+        </section>
+
+        <section id="participar" class="org-seccion-estandar" aria-labelledby="titulo-participar">
+            <h2 id="titulo-participar" class="atm-titulo-grande">Iniciar Conexión</h2>
+            <p>Ingresá tus datos para donar equipos o sumarte como voluntario técnico.</p>
+            
+            <div style="display: flex; flex-direction: column; gap: var(--separacion-componente); max-width: 400px; margin-top: var(--separacion-modulo);">
+    <a href="donar-hardware.html" class="atm-btn-primario" style="text-align: center;">[+] Quiero donar hardware</a>
+    <a href="voluntario.html" class="atm-btn-secundario" style="text-align: center;">[+] Quiero ser voluntario</a>
+    <a href="solicitar-equipo.html" class="atm-btn-secundario" style="text-align: center;">[>] Necesito equipamiento</a>
+</div>
+        </section>
+
+       <section id="documentacion" class="org-seccion-estandar" aria-labelledby="titulo-docs">
+            <h2 id="titulo-docs" class="atm-titulo-display">Documentación del Sistema</h2>
+            
+            <article class="doc-bloque">
+                <h3 class="atm-titulo-grande">4.1 Sobre el caso</h3>
+                <p><strong>Cooperativa Nodo:</strong> Organización dedicada a la recuperación y reacondicionamiento de hardware (e-waste). El sistema vincula a donantes, voluntarios técnicos y referentes de espacios comunitarios. El objetivo web es agilizar el proceso de donación y visibilizar el ciclo de reciclaje técnico.</p>
+                <p>La elección de Cooperativa Nodo se fundamenta explícitamente en su impacto directo sobre el bien común. Al recuperar hardware en desuso, la organización aborda simultáneamente una urgencia ecológica (la reducción de la basura electrónica) y una problemática social profunda, democratizando el acceso a la tecnología en sectores vulnerables.</p>
+            </article>
+
+            <article class="doc-bloque">
+                <h3 class="atm-titulo-grande">4.2 Análisis de referencia</h3>
+                <p>Se deconstruyó el sitio de la Fundación Equidad. Se detectó un uso genérico del diseño corporativo "eco-friendly" y falencias en la jerarquía tipográfica. <em>(Insertar capturas de pantalla de referencia aquí)</em>.</p>
+                <p>Este análisis de referencia influyó de manera directa en las decisiones de nuestro sistema propio. Al detectar que el uso genérico del "verde ecológico" diluía el aspecto técnico, se optó intencionalmente por tomar el camino opuesto. Se implementó una paleta oscura y estética de "hardware expuesto" para asegurar que el diseño comunique primero el ensamblaje técnico.</p>
+            </article>
+
+            <article class="doc-bloque">
+                <h3 class="atm-titulo-grande">4.3 Variables del sistema (Design Tokens)</h3>
+                <div class="muestras-grid">
+                    <div class="muestra-color" style="background-color: var(--color-fondo); border: 1px solid var(--color-borde);">
+                        <span class="atm-tag-estado">--color-fondo</span>
+                    </div>
+                    <div class="muestra-color" style="background-color: var(--color-superficie); border: 1px solid var(--color-borde);">
+                        <span class="atm-tag-estado">--color-superficie</span>
+                    </div>
+                    <div class="muestra-color" style="background-color: var(--color-primario); color: var(--color-fondo);">
+                        <span class="atm-tag-estado">--color-primario</span>
+                    </div>
+                    <div class="muestra-color" style="background-color: var(--color-accion); color: var(--color-fondo);">
+                        <span class="atm-tag-estado">--color-accion</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="doc-bloque">
+                <h3 class="atm-titulo-grande">4.4 Inventario visual</h3>
+                <p class="atm-txt-codigo">Convención adoptada: atm- (Átomos), mol- (Moléculas), org- (Organismos)</p>
+                <p class="atm-txt-codigo">Átomos representativos:</p>
+                <div style="display: flex; gap: 1rem; margin-bottom: 2rem; align-items: center;">
+                    <button class="atm-btn-primario">.atm-btn-primario</button>
+                    <button class="atm-btn-secundario">.atm-btn-secundario</button>
+                    <span class="atm-tag-estado">.atm-tag-estado</span>
+                </div>
+                
+                <p class="atm-txt-codigo">Molécula representativa (.mol-card-hardware):</p>
+                <p>Visible en la sección de "Hardware Recuperado" superior.</p>
+            </article>
+
+            <article class="doc-bloque">
+                <h3 class="atm-titulo-grande">4.5 Decisiones técnicas</h3>
+                <p>La estructura macro del layout se resolvió mediante <strong>CSS Grid</strong>. Para Mobile se utiliza una grilla de 1 columna (`grid-template-columns: 1fr`). Para Desktop (1280px) se declara una grilla base de 12 columnas (`repeat(12, 1fr)`) asignando explícitamente posiciones: el hero ocupa las columnas centrales (3 a 11), mientras que los encabezados abarcan el 100% de la extensión.</p>
+                
+                <p>El componente principal del inventario (`.mol-card-hardware`) utiliza <strong>Container Queries</strong> (`container-type: inline-size`). Esto permite que la tarjeta reorganice su microcomposición interna (pasando de apilada a horizontal) en función del espacio disponible en su columna padre.</p>
+            </article>
+        </section>
+
+       <!-- Modal Especificaciones Técnicas Dinámico -->
+    <div id="modal-especificaciones" class="mol-modal-overlay">
+        <div class="mol-modal-contenido" style="text-align: left;">
+            <h3 class="atm-titulo-grande" style="color: var(--color-primario); text-align: center;">[ SYS_DATA_READ ]</h3>
+            
+            <h4 id="specs-titulo" style="color: var(--color-texto); text-align: center; font-family: 'Courier New', monospace; margin-top: var(--separacion-minima);">COMPONENTE</h4>
+
+            <!-- Pantalla simulada de consola -->
+            <div style="margin: var(--separacion-componente) 0; padding: var(--separacion-componente); background-color: #000; border: 1px solid var(--color-borde); color: var(--color-primario); font-family: 'Courier New', monospace; font-size: var(--texto-metadato);">
+                <p>> RUNNING DIAGNOSTIC...</p>
+                <div id="specs-contenido" style="margin-top: 10px;">
+                    <!-- La info dinámica va a aparecer acá -->
+                </div>
+                <span class="anim-blink">_</span>
+            </div>
+            
+            <div style="text-align: center;">
+                <button id="btn-cerrar-specs" class="atm-btn-primario">Cerrar Terminal</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const botonesSpecs = document.querySelectorAll('.js-abrir-specs');
+            const modalSpecs = document.getElementById('modal-especificaciones');
+            const btnCerrar = document.getElementById('btn-cerrar-specs');
+            
+            // Elementos donde vamos a inyectar el texto
+            const tituloDestino = document.getElementById('specs-titulo');
+            const contenidoDestino = document.getElementById('specs-contenido');
+
+            botonesSpecs.forEach(function(boton) {
+                boton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Extraemos la información de los data-attributes
+                    const titulo = boton.getAttribute('data-titulo');
+                    const info = boton.getAttribute('data-info');
+                    
+                    // Inyectamos la info en el modal
+                    tituloDestino.textContent = "COMPONENTE: " + titulo;
+                    contenidoDestino.innerHTML = info; // Usamos innerHTML para que lea los <br>
+                    
+                    // Mostramos el modal
+                    modalSpecs.style.display = 'flex';
+                });
+            });
+
+            if (btnCerrar) {
+                btnCerrar.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modalSpecs.style.display = 'none';
+                });
+            }
+        });
+    </script>
+    </main>
+
+    <footer class="org-footer-sistema">
+        <div class="footer-info">
+            <p class="atm-txt-codigo">&copy; 2026 Cooperativa Nodo.</p>
+            <p>La Plata, Buenos Aires. Hardware abierto y reciclaje social.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
